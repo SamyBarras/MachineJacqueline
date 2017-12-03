@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      var clarifai = new Clarifai.App({ apiKey: 'dde0b8ba4a324df8b21961c9fbedd4e9' })
+      var imageSrc = 'http://maudetsamy.com/machineJacking/cadavre_8.png'
+      document.getElementById('image').src = imageSrc
+
+      console.log(Clarifai)
+
+      // -------------------------------------------------------------------------
+      // GENERAL_MODEL
+
+      clarifai
+      .models
+      .predict(Clarifai.GENERAL_MODEL, imageSrc)
+      .then(function (response) {
+        // console.log('GENERAL_MODEL', response.outputs[0].data.concepts)
+
+        var htmlOutput = ''
+        for (var i = 0; i < response.outputs[0].data.concepts.length; i++) {
+          var concept = response.outputs[0].data.concepts[i]
+          var percent = (concept.value * 100).toFixed(2)
+          htmlOutput += '<br>' + googleImageSearchLink(concept.name) + ' (' + percent + '%)'
+        }
+
+        document.getElementById('general').innerHTML = htmlOutput
+      }, function (err) { console.error(err) })
+
+      // -------------------------------------------------------------------------
+      // COLOR_MODEL
+
+      clarifai
+      .models
+      .predict(Clarifai.COLOR_MODEL, imageSrc)
+      .then(function (response) {
+        // console.log('COLOR_MODEL', response.outputs[0].data.colors)
+
+        var htmlOutput = ''
+        for (var i = 0; i < response.outputs[0].data.colors.length; i++) {
+          var color = response.outputs[0].data.colors[i]
+          var percent = (color.value * 100).toFixed(2)
+          htmlOutput += '<br>' + hexBackground(color.raw_hex) + ' (' + percent + '%)'
+        }
+
+        document.getElementById('color').innerHTML = htmlOutput
+      }, function (err) { console.error(err) })
+    })
+
+    function googleImageSearchURL (query) { return 'https://www.google.fr/search?q='+ encodeURIComponent(query) +'&tbm=isch' }
+    function googleImageSearchLink (query, text) {
+      text = text || query
+      return '<a href="'+ googleImageSearchURL(query) +'">'+ text +'</a>'
+    }
+
+    function hexBackground (hex, text) {
+      text = text || hex
+      return '<span style="background-color:'+hex+';padding:10px;display:inline-block">'+ text +'</span>'
+    }
+
+  </script>
+</head>
+<body>
+  <main style="width: 50%; margin: 0 auto">
+    <img id="image" style="width: 100%; height:; auto;">
+    <div id="general"></div>
+    <div id="color"></div>
+  </main>
+</body>
+</html>

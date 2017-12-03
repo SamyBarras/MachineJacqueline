@@ -1,0 +1,239 @@
+:root {
+  --link-color: #fffc33;
+
+}
+body {
+	font-family: 'Cutive Mono', monospace;
+	background-color: #f2f2f2;
+	font-weight : 400;
+}
+h1 {
+	font-size : 15px;
+}
+h2 {
+	font-size : 12px;
+	font-weight : 400;
+}
+h3 {
+	font-size : 10px;
+	font-weight : 400;
+}
+a {
+	text-decoration: none;
+	color : black;
+	cursor: pointer;
+}
+a:hover {
+	background-color: var(--link-color);
+	cursor: pointer;
+}
+a:visited {
+	color : black;
+}
+#main {
+	position : absolute;
+	margin: auto;
+	top: -100px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: inherit;
+	width : 250px;
+	height:50px;
+	/*background-image : url("_images/MES_ident.gif");*/
+	background-position : left top;
+	background-size: contain;
+    background-repeat: no-repeat;
+}
+#main-content-left-container {
+    position: relative;
+    float: left;    
+	z-index:1;
+	border:0px;
+	margin:auto;
+	width:100%;
+	font-size: 10px;
+	
+}
+#menu_items {
+	width:100%;
+	padding : 0;
+	list-style-type: none;
+    position: relative;
+    text-align: justify;
+    
+}
+#menu_items li {
+	height : 10px;
+	padding : 3px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+#menu_items li:hover{
+    background-color: var(--link-color);
+	cursor: pointer;
+}
+#menu_items li:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+#menu_items li.active {
+	font-weight: bold;
+	background-color:rgba(125,125,125,.4);
+	color: white;
+}
+#loading {
+	z-index : 1;
+	position : absolute;
+	margin: auto;
+	top: calc(50vh - 400px);
+	left : 25vw;
+	width : 50vw;
+	height:	70vh;
+	/*background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif");
+	background-blend-mode: multiply;
+	background-color:inherit;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-size:  cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; */
+    text-align : center;
+    font-size : 12px;
+}
+#menu {
+	position:absolute;
+	z-index: 2;
+	right:20px;
+	bottom:20px;
+	font-size : 10px;
+	text-decoration: none;
+	position : fixed;
+}
+#menu div {
+	float :left;
+	padding : 5px;
+	text-decoration: none;
+	font-weight: 600;
+	cursor: pointer;
+}
+#menu div:hover{
+    background-color: var(--link-color);
+	cursor: pointer;
+}
+#artistwork {
+	position : absolute;
+	width : 500px;
+	height: 550px;
+	top: calc(50vh - 350px);
+	left: calc(50vw - 250px);
+	background-color: inherit;
+}
+#artistwork img {
+	width : 420px;
+	height:420px;
+	top: 0;
+	left : 0;
+}
+#reload {
+	/*background-image :url(http://maudetsamy.com/MachineJacqueline/reloadIcon.png);*/
+	cursor: pointer;
+    background-size:  cover;
+    -webkit-background-size: cover; /* For WebKit*/
+    -moz-background-size: cover;    /* Mozilla*/
+    -o-background-size: cover;      /* Opera*/
+    background-size: cover; 
+	width : 10px;
+	height: 10px;
+}
+#reload:hover{
+    background-color: var(--link-color);
+	cursor: pointer;
+}
+figure img {
+	width : 100%;
+	margin-bottom : 10px;
+}
+figure figcaption {
+    text-align: center;
+}
+#description {
+	font-size: 10px;
+}
+#conf {
+	font-size: 8px;
+}
+#info {
+	position :absolute;
+	width : 99vw;
+	height: 99vh;
+	z-index : 1;
+	border : 1px;
+	font-size : 10px;
+	position : fixed;
+}
+#infotxt {
+	position : relative;
+	width : 500px;
+	height: 250px;
+	border : 3px;
+	border-color : black;
+	top : 10vh;
+	left : calc(50vw - 250px);
+}
+
+.blured {
+	background-image:url('http://www.chidi.com/images/canvas/abstract/trailsofdream.jpg');
+    background-size:cover;
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -ms-filter: blur(20px);
+    -o-filter: blur(20px);
+    filter: blur(20px);
+}
+.hidden {
+	display : none;
+}
+#serie {
+	position : absolute;
+	top : calc(50vh - 150px);
+	left : calc(50vw - 125px);
+}
+#serie td {
+	text-align : center;
+	vertical-align: middle;	
+}
+.serie_img {
+	width : 250px;
+	height : 250px;
+	text-align : center;
+	vertical-align: middle;	
+}
+.serie_sentence {
+	font-size: 12px;
+	text-align : center;
+	vertical-align: middle;	
+	width : 250px;
+	height : 250px;
+}
+@media only screen and (max-width: 760px) {
+ /* mobile css */ 
+ body{
+ 	background-color:red;
+ }
+ h1 {
+	font-size : 15px;
+}
+h2 {
+	font-size : 12px;
+	font-weight : 400;
+}
+h3 {
+	font-size : 10px;
+	font-weight : 400;
+}
+}
